@@ -5,57 +5,58 @@
     <div class="row">
         <!-- Sidebar Filters -->
         <div class="col-lg-3 mb-4">
-            <div class="bg-white p-4 rounded-4 shadow-sm sticky-top" style="top: 100px;">
-                <h5 class="fw-bold mb-4 text-purple-dark">Filters</h5>
+            <div class="bg-white p-4 border shadow-sm sticky-top" style="top: 100px;">
+                <h5 class="fw-bold mb-4 text-purple-primary" style="font-family: 'Cinzel', serif;">FILTERS</h5>
 
                 <!-- Categories -->
-                <div class="mb-4">
-                    <h6 class="fw-bold text-gold mb-3">Categories</h6>
+                <div class="mb-5">
+                    <h6 class="fw-bold text-dark mb-3 text-uppercase small letter-spacing-1">Categories</h6>
                     <div class="d-flex flex-column gap-2">
                         {% for cat in ['Vegetables', 'Fruits', 'Dairy', 'Snacks', 'Chocolates', 'Beverages', 'Home
                         Care'] %}
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="cat_{{loop.index}}">
-                            <label class="form-check-label" for="cat_{{loop.index}}">{{ cat }}</label>
+                            <input class="form-check-input rounded-0" type="checkbox" id="cat_{{loop.index}}"
+                                style="border-color: #ddd;">
+                            <label class="form-check-label small" for="cat_{{loop.index}}">{{ cat }}</label>
                         </div>
                         {% endfor %}
                     </div>
                 </div>
 
-                <hr>
+                <hr class="border-light my-4">
 
                 <!-- Price Range -->
-                <div class="mb-4">
-                    <h6 class="fw-bold text-gold mb-3">Price</h6>
+                <div class="mb-5">
+                    <h6 class="fw-bold text-dark mb-3 text-uppercase small letter-spacing-1">Price Range</h6>
                     <input type="range" class="form-range" min="0" max="1000" id="priceRange">
-                    <div class="d-flex justify-content-between text-muted small">
+                    <div class="d-flex justify-content-between text-muted small mt-2 fw-bold">
                         <span>$0</span>
                         <span>$1000</span>
                     </div>
                 </div>
 
-                <hr>
+                <hr class="border-light my-4">
 
                 <!-- Discount -->
                 <div class="mb-4">
-                    <h6 class="fw-bold text-gold mb-3">Discount</h6>
+                    <h6 class="fw-bold text-dark mb-3 text-uppercase small letter-spacing-1">Discount</h6>
                     <div class="d-flex flex-column gap-2">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="discount" id="disc_1">
-                            <label class="form-check-label" for="disc_1">10% Off or more</label>
+                            <input class="form-check-input rounded-0" type="radio" name="discount" id="disc_1">
+                            <label class="form-check-label small" for="disc_1">10% Off or more</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="discount" id="disc_2">
-                            <label class="form-check-label" for="disc_2">25% Off or more</label>
+                            <input class="form-check-input rounded-0" type="radio" name="discount" id="disc_2">
+                            <label class="form-check-label small" for="disc_2">25% Off or more</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="discount" id="disc_3">
-                            <label class="form-check-label" for="disc_3">50% Off or more</label>
+                            <input class="form-check-input rounded-0" type="radio" name="discount" id="disc_3">
+                            <label class="form-check-label small" for="disc_3">50% Off or more</label>
                         </div>
                     </div>
                 </div>
 
-                <button class="btn btn-premium w-100 mt-2">Apply Filters</button>
+                <button class="btn btn-premium w-100 mt-3 rounded-0">Apply Filters</button>
             </div>
         </div>
 
@@ -116,16 +117,16 @@
                             </div>
                         </a>
                         <div class="card-body text-center">
-                            <small class="text-muted d-block mb-1">Vegetables</small>
-                            <h6 class="card-title fw-bold text-truncate" title="Fresh Organic Product {{loop.index}}">
+                            <small class="text-muted d-block mb-1 text-uppercase letter-spacing-1"
+                                style="font-size: 0.7rem;">Vegetables</small>
+                            <h6 class="card-title text-truncate" title="Fresh Organic Product {{loop.index}}">
                                 Fresh Organic Product {{loop.index}}</h6>
-                            <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                            <div class="d-flex justify-content-center align-items-center gap-2 mb-3">
                                 <span class="h6 mb-0 text-purple-primary fw-bold">$12.99</span>
                                 <span class="text-decoration-line-through text-muted small">$15.00</span>
-                                <span class="badge bg-gold text-dark small">10%</span>
                             </div>
-                            <button class="btn btn-outline-purple w-100 rounded-pill btn-sm hover-bg-purple">
-                                <i class="fas fa-shopping-bag me-1"></i> Add
+                            <button class="btn btn-premium w-100 btn-sm rounded-0">
+                                ADD TO CART
                             </button>
                         </div>
                     </div>
@@ -134,23 +135,22 @@
             </div>
 
             <!-- Pagination -->
+            <!-- Pagination (Sharp) -->
             <nav class="mt-5 d-flex justify-content-center">
                 <ul class="pagination">
                     <li class="page-item disabled">
-                        <a class="page-link rounded-circle mx-1 border-0 bg-light text-muted" href="#"><i
+                        <a class="page-link mx-1 border-0 bg-light text-muted rounded-0" href="#"><i
                                 class="fas fa-chevron-left"></i></a>
                     </li>
                     <li class="page-item"><a
-                            class="page-link rounded-circle mx-1 border-0 bg-purple-primary text-white shadow"
+                            class="page-link mx-1 border-0 bg-purple-primary text-white shadow-sm rounded-0"
                             href="#">1</a></li>
-                    <li class="page-item"><a
-                            class="page-link rounded-circle mx-1 border-0 bg-light text-dark hover-bg-light"
+                    <li class="page-item"><a class="page-link mx-1 border-0 bg-light text-dark hover-bg-light rounded-0"
                             href="#">2</a></li>
-                    <li class="page-item"><a
-                            class="page-link rounded-circle mx-1 border-0 bg-light text-dark hover-bg-light"
+                    <li class="page-item"><a class="page-link mx-1 border-0 bg-light text-dark hover-bg-light rounded-0"
                             href="#">3</a></li>
                     <li class="page-item">
-                        <a class="page-link rounded-circle mx-1 border-0 bg-light text-dark hover-bg-light" href="#"><i
+                        <a class="page-link mx-1 border-0 bg-light text-dark hover-bg-light rounded-0" href="#"><i
                                 class="fas fa-chevron-right"></i></a>
                     </li>
                 </ul>

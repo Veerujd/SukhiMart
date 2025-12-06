@@ -2,83 +2,70 @@
 
 {% block content %}
 <!-- Hero Section -->
-<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-in">
-    <div class="carousel-indicators">
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+<!-- Floating Hero Section -->
+<div class="position-relative overflow-hidden vh-100 d-flex align-items-center"
+    style="background: radial-gradient(circle at 10% 20%, rgb(255, 252, 213) 0%, rgb(255, 126, 95) 90%);">
+
+    <!-- Abstract Shapes -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden" style="z-index: 0;">
+        <div class="position-absolute bg-white opacity-25 rounded-circle blur-3xl"
+            style="width: 600px; height: 600px; top: -10%; left: -10%;"></div>
+        <div class="position-absolute bg-purple-primary opacity-10 rounded-circle blur-3xl"
+            style="width: 800px; height: 800px; bottom: -20%; right: -20%;"></div>
     </div>
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <div
-                style="height: 500px; background: linear-gradient(135deg, var(--purple-primary), var(--purple-dark)); position: relative;">
-                <div class="container h-100 d-flex align-items-center">
-                    <div class="col-md-6 text-white p-5" data-aos="fade-up" data-aos-delay="200">
-                        <span class="badge bg-gold text-dark mb-2">Premium Quality</span>
-                        <h1 class="display-3 fw-bold mb-3">Freshness Delivered</h1>
-                        <p class="lead mb-4">Experience the finest selection of organic fruits and vegetables.</p>
-                        <a href="/products" class="btn btn-warning btn-lg rounded-pill px-5 fw-bold">Shop Now</a>
-                    </div>
-                    <div class="col-md-6 d-none d-md-block text-center" data-aos="fade-left" data-aos-delay="400">
-                        <!-- Placeholder for Hero Image -->
-                        <img src="https://placehold.co/500x400/png?text=Fresh+Produce" alt="Hero Image"
-                            class="img-fluid floating-anim">
+
+    <div class="container position-relative" style="z-index: 2;">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-right">
+                <div class="glass-panel p-5 rounded-5" style="border-radius: 40px !important;">
+                    <span class="badge bg-gold text-white mb-3 px-3 py-2 rounded-pill shadow-sm">PREMIUM
+                        SELECTION</span>
+                    <h1 class="display-2 fw-bold mb-4 text-purple-primary" style="font-family: 'Cinzel', serif;">Organic
+                        & <br>Fresh Daily</h1>
+                    <p class="lead mb-5 text-dark opacity-75">Experience the ethereal taste of nature's finest harvest,
+                        delivered directly to your doorstep with premium care.</p>
+                    <div class="d-flex gap-2 gap-md-3">
+                        <a href="/products"
+                            class="btn btn-premium shadow-lg px-4 py-2 px-md-5 py-md-3 small-mobile-text">Start
+                            Shopping</a>
+                        <a href="#collections"
+                            class="btn btn-outline-dark rounded-pill px-3 py-2 px-md-4 py-md-3 fw-bold text-uppercase small-mobile-text"
+                            style="letter-spacing: 1px;">View Collections</a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="carousel-item">
-            <div style="height: 500px; background: linear-gradient(135deg, #2c3e50, #000000); position: relative;">
-                <div class="container h-100 d-flex align-items-center">
-                    <div class="col-md-6 text-white p-5">
-                        <span class="badge bg-danger mb-2">Limited Offer</span>
-                        <h1 class="display-3 fw-bold mb-3">Exclusive Deals</h1>
-                        <p class="lead mb-4">Get up to 50% off on premium dairy products.</p>
-                        <a href="/products" class="btn btn-outline-light btn-lg rounded-pill px-5 fw-bold">View
-                            Offers</a>
-                    </div>
-                    <div class="col-md-6 d-none d-md-block text-center">
-                        <img src="https://placehold.co/500x400/png?text=Dairy+Products" alt="Deals"
-                            class="img-fluid floating-anim">
-                    </div>
-                </div>
+            <div class="col-lg-6 text-center" data-aos="fade-left">
+                <img src="https://placehold.co/600x600/png?text=Fresh+Basket" alt="Hero Image"
+                    class="img-fluid floating-anim drop-shadow-2xl">
             </div>
         </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon"></span>
-    </button>
 </div>
 
-<!-- Category Slider Section -->
-<section class="py-5 bg-white shadow-sm">
+<!-- Minimal Category Strip -->
+<section class="py-5 position-relative" style="margin-top: -60px; z-index: 10;">
     <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="h3 fw-bold text-purple-dark">Shop by Category</h2>
-            <div class="border-bottom border-3 border-warning" style="width: 50px;"></div>
-        </div>
-        <div class="row flex-nowrap overflow-auto pb-3" style="scrollbar-width: none;">
-            {% for cat in ['Vegetables', 'Fruits', 'Dairy', 'Snacks', 'Drinks', 'Bakery', 'Frozen', 'Cleaning'] %}
-            <div class="col-4 col-md-2 text-center" data-aos="fade-up" data-aos-delay="{{loop.index0 * 100}}">
-                <a href="/category/{{ cat }}"
-                    class="card card-premium p-3 align-items-center h-100 mb-2 text-decoration-none text-dark hover-scale transition-transform d-flex justify-content-center">
-                    <div class="rounded-circle bg-purple-light d-flex align-items-center justify-content-center mb-3"
-                        style="width: 70px; height: 70px;">
-                        <i class="fas fa-shopping-basket fa-2x text-purple-primary"></i>
-                    </div>
-                    <h6 class="fw-bold mb-0 small">{{ cat }}</h6>
-                </a>
+        <div class="glass-panel p-4 rounded-5 mx-auto shadow-lg" style="max-width: 1200px;">
+            <div class="row row-cols-3 row-cols-md-6 g-3 justify-content-center">
+                {% for cat, icon in [('Vegetables', 'carrot'), ('Fruits', 'apple-alt'), ('Dairy', 'cheese'), ('Snacks',
+                'cookie'), ('Beverages', 'wine-glass-alt'), ('Bakery', 'bread-slice')] %}
+                <div class="col text-center">
+                    <a href="/category/{{ cat }}"
+                        class="text-decoration-none cat-item d-block p-2 rounded-4 hover-bg-light transition-all">
+                        <div class="d-inline-flex align-items-center justify-content-center bg-white text-gold shadow-sm rounded-circle mb-2"
+                            style="width: 60px; height: 60px;">
+                            <i class="fas fa-{{icon}} fs-4"></i>
+                        </div>
+                        <h6 class="fw-bold text-dark small mb-0">{{ cat }}</h6>
+                    </a>
+                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
 </section>
 
-</div>
-</section>
+
 
 <!-- Trending Products Section (Bg Light) -->
 <section class="py-5 bg-light">
@@ -325,7 +312,7 @@
         <div class="row g-4">
             <div class="col-md-6" data-aos="fade-right">
                 <a href="/category/Fruits" class="d-block position-relative overflow-hidden group h-100">
-                    <img src="https://placehold.co/800x600/png?text=Exotic+Fruits"
+                    <img src="https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=800&q=80"
                         class="img-fluid w-100 transition-transform hover-scale-img" alt="Fruits">
                     <div
                         class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-25 transition-opacity group-hover-opacity-40">
@@ -341,7 +328,7 @@
                 <div class="row g-4 h-100">
                     <div class="col-12 h-50">
                         <a href="/category/Vegetables" class="d-block position-relative overflow-hidden group h-100">
-                            <img src="https://placehold.co/800x300/png?text=Organic+Greens"
+                            <img src="https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?auto=format&fit=crop&w=800&q=80"
                                 class="img-fluid w-100 h-100 object-fit-cover transition-transform hover-scale-img"
                                 alt="Vegetables">
                             <div
@@ -355,7 +342,7 @@
                     </div>
                     <div class="col-12 h-50">
                         <a href="/category/Dairy" class="d-block position-relative overflow-hidden group h-100">
-                            <img src="https://placehold.co/800x300/png?text=Artisanal+Dairy"
+                            <img src="https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&w=800&q=80"
                                 class="img-fluid w-100 h-100 object-fit-cover transition-transform hover-scale-img"
                                 alt="Dairy">
                             <div

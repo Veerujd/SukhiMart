@@ -1,100 +1,93 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container py-5"
-    style="background: url('https://placehold.co/1920x1080/png?text=Background') no-repeat center center/cover;">
-    <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-5">
-            <div class="card card-premium shadow-lg border-0 overflow-hidden"
-                style="backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.9);">
+<div class="container-fluid min-vh-100 d-flex align-items-center justify-content-center"
+    style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://placehold.co/1920x1080/png?text=SukhiMart+Premium') no-repeat center center/cover;">
+    <div class="row justify-content-center w-100">
+        <div class="col-md-6 col-lg-4">
+            <div class="card card-premium shadow-2xl border-0 overflow-hidden rounded-0"
+                style="backdrop-filter: blur(20px); background: rgba(255, 255, 255, 0.95);">
                 <div class="card-body p-5">
-                    <div class="text-center mb-4">
-                        <h3 class="fw-bold text-purple-dark">Welcome Back</h3>
-                        <p class="text-muted">Login to continue shopping</p>
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold text-dark mb-2" style="font-family: 'Cinzel', serif;">SUKHIMART</h2>
+                        <p class="text-muted text-uppercase small letter-spacing-2">Premium Shopping Experience</p>
                     </div>
 
-                    <ul class="nav nav-pills nav-justified mb-4" id="pills-tab" role="tablist">
+                    <ul class="nav nav-tabs nav-justified mb-5 border-bottom-0" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link active rounded-pill fw-bold" id="pills-login-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-login" type="button">Login</button>
+                            <button
+                                class="nav-link active rounded-0 fw-bold border-0 border-bottom border-dark border-2 text-dark"
+                                id="pills-login-tab" data-bs-toggle="pill" data-bs-target="#pills-login"
+                                type="button">LOGIN</button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link rounded-pill fw-bold text-purple-dark" id="pills-signup-tab"
-                                data-bs-toggle="pill" data-bs-target="#pills-signup" type="button">Sign Up</button>
+                            <button class="nav-link rounded-0 fw-bold border-0 text-muted" id="pills-signup-tab"
+                                data-bs-toggle="pill" data-bs-target="#pills-signup" type="button">SIGN UP</button>
                         </li>
                     </ul>
 
                     <div class="tab-content" id="pills-tabContent">
+                        <!-- LOGIN FORM -->
                         <div class="tab-pane fade show active" id="pills-login" role="tabpanel">
                             <form>
-                                <div class="mb-3">
-                                    <label class="form-label">Email address</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0"><i
-                                                class="fas fa-envelope text-purple-light"></i></span>
-                                        <input type="email" class="form-control border-start-0 ps-0"
-                                            placeholder="name@example.com">
-                                    </div>
+                                <div class="mb-4">
+                                    <label class="form-label text-uppercase small letter-spacing-1 text-muted">Email
+                                        address</label>
+                                    <input type="email"
+                                        class="form-control rounded-0 p-3 bg-white border-light shadow-sm"
+                                        placeholder="name@example.com">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Password</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-white border-end-0"><i
-                                                class="fas fa-lock text-purple-light"></i></span>
-                                        <input type="password" class="form-control border-start-0 ps-0"
-                                            placeholder="********">
-                                    </div>
+                                <div class="mb-4">
+                                    <label
+                                        class="form-label text-uppercase small letter-spacing-1 text-muted">Password</label>
+                                    <input type="password"
+                                        class="form-control rounded-0 p-3 bg-white border-light shadow-sm"
+                                        placeholder="********">
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-5">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe">
-                                        <label class="form-check-label small" for="rememberMe">Remember me</label>
+                                        <input class="form-check-input rounded-0" type="checkbox" id="rememberMe">
+                                        <label class="form-check-label small text-muted" for="rememberMe">Remember
+                                            me</label>
                                     </div>
-                                    <a href="#" class="small text-purple-primary text-decoration-none">Forgot
+                                    <a href="#"
+                                        class="small text-gold text-decoration-none text-uppercase letter-spacing-1 fw-bold">Forgot
                                         password?</a>
                                 </div>
                                 <button type="submit"
-                                    class="btn btn-premium w-100 rounded-pill py-2 shadow-sm">Login</button>
+                                    class="btn btn-premium w-100 rounded-0 py-3 shadow-none fw-bold letter-spacing-2">LOGIN</button>
                             </form>
                         </div>
 
+                        <!-- SIGN UP FORM -->
                         <div class="tab-pane fade" id="pills-signup" role="tabpanel">
                             <form>
-                                <div class="mb-3">
-                                    <label class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" placeholder="John Doe">
+                                <div class="mb-4">
+                                    <label class="form-label text-uppercase small letter-spacing-1 text-muted">Full
+                                        Name</label>
+                                    <input type="text"
+                                        class="form-control rounded-0 p-3 bg-white border-light shadow-sm"
+                                        placeholder="John Doe">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Email address</label>
-                                    <input type="email" class="form-control" placeholder="name@example.com">
+                                <div class="mb-4">
+                                    <label class="form-label text-uppercase small letter-spacing-1 text-muted">Email
+                                        address</label>
+                                    <input type="email"
+                                        class="form-control rounded-0 p-3 bg-white border-light shadow-sm"
+                                        placeholder="name@example.com">
                                 </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Password</label>
-                                    <input type="password" class="form-control" placeholder="********">
+                                <div class="mb-4">
+                                    <label
+                                        class="form-label text-uppercase small letter-spacing-1 text-muted">Password</label>
+                                    <input type="password"
+                                        class="form-control rounded-0 p-3 bg-white border-light shadow-sm"
+                                        placeholder="********">
                                 </div>
-                                <button type="submit" class="btn btn-premium w-100 rounded-pill py-2 shadow-sm">Create
-                                    Account</button>
+                                <button type="submit"
+                                    class="btn btn-premium w-100 rounded-0 py-3 shadow-none fw-bold letter-spacing-2">CREATE
+                                    ACCOUNT</button>
                             </form>
                         </div>
-                    </div>
-
-                    <div class="text-center mt-4 position-relative">
-                        <hr class="text-muted">
-                        <span
-                            class="position-absolute top-50 start-50 translate-middle bg-white px-2 text-muted small">Or
-                            continue with</span>
-                    </div>
-
-                    <div class="d-flex justify-content-center gap-3 mt-4">
-                        <button
-                            class="btn btn-outline-light border shadow-sm rounded-circle p-2 text-primary hover-glow"><i
-                                class="fab fa-facebook-f fa-lg"></i></button>
-                        <button
-                            class="btn btn-outline-light border shadow-sm rounded-circle p-2 text-danger hover-glow"><i
-                                class="fab fa-google fa-lg"></i></button>
-                        <button
-                            class="btn btn-outline-light border shadow-sm rounded-circle p-2 text-info hover-glow"><i
-                                class="fab fa-twitter fa-lg"></i></button>
                     </div>
                 </div>
             </div>

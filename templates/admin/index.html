@@ -3,64 +3,61 @@
 {% block page_title %}Dashboard{% endblock %}
 
 {% block admin_content %}
-<div class="row g-4 mb-4">
+<div class="row g-4 mb-5">
     <!-- Stats Cards -->
     <div class="col-md-3">
-        <div class="card card-premium p-3 border-0 shadow-sm">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-muted">Total Sales</span>
-                <span class="bg-purple-light text-purple-primary p-2 rounded-circle"><i
-                        class="fas fa-dollar-sign"></i></span>
+        <div class="card card-premium p-4 border-0 shadow-sm rounded-0">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted text-uppercase small letter-spacing-1">Total Sales</span>
+                <span class="bg-light text-dark p-2 rounded-0"><i class="fas fa-dollar-sign"></i></span>
             </div>
-            <h3 class="fw-bold mb-0">$24,500</h3>
+            <h3 class="fw-bold mb-1" style="font-family: 'Cinzel', serif;">$24,500</h3>
             <small class="text-success fw-bold"><i class="fas fa-arrow-up"></i> 12% increase</small>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card card-premium p-3 border-0 shadow-sm">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-muted">Total Orders</span>
-                <span class="bg-warning bg-opacity-10 text-warning p-2 rounded-circle"><i
-                        class="fas fa-shopping-bag"></i></span>
+        <div class="card card-premium p-4 border-0 shadow-sm rounded-0">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted text-uppercase small letter-spacing-1">Total Orders</span>
+                <span class="bg-light text-dark p-2 rounded-0"><i class="fas fa-shopping-bag"></i></span>
             </div>
-            <h3 class="fw-bold mb-0">1,250</h3>
+            <h3 class="fw-bold mb-1" style="font-family: 'Cinzel', serif;">1,250</h3>
             <small class="text-success fw-bold"><i class="fas fa-arrow-up"></i> 5% increase</small>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card card-premium p-3 border-0 shadow-sm">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-muted">Total Users</span>
-                <span class="bg-info bg-opacity-10 text-info p-2 rounded-circle"><i
-                        class="fas fa-user-friends"></i></span>
+        <div class="card card-premium p-4 border-0 shadow-sm rounded-0">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted text-uppercase small letter-spacing-1">Total Users</span>
+                <span class="bg-light text-dark p-2 rounded-0"><i class="fas fa-user-friends"></i></span>
             </div>
-            <h3 class="fw-bold mb-0">8,400</h3>
+            <h3 class="fw-bold mb-1" style="font-family: 'Cinzel', serif;">8,400</h3>
             <small class="text-success fw-bold"><i class="fas fa-arrow-up"></i> 8% increase</small>
         </div>
     </div>
     <div class="col-md-3">
-        <div class="card card-premium p-3 border-0 shadow-sm">
-            <div class="d-flex justify-content-between align-items-center mb-2">
-                <span class="text-muted">Pending Orders</span>
-                <span class="bg-danger bg-opacity-10 text-danger p-2 rounded-circle"><i class="fas fa-clock"></i></span>
+        <div class="card card-premium p-4 border-0 shadow-sm rounded-0">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted text-uppercase small letter-spacing-1">Pending Orders</span>
+                <span class="bg-light text-dark p-2 rounded-0"><i class="fas fa-clock"></i></span>
             </div>
-            <h3 class="fw-bold mb-0">35</h3>
+            <h3 class="fw-bold mb-1" style="font-family: 'Cinzel', serif;">35</h3>
             <small class="text-danger fw-bold"><i class="fas fa-arrow-down"></i> Action Needed</small>
         </div>
     </div>
 </div>
 
-<div class="row g-4 mb-4">
+<div class="row g-4 mb-5">
     <!-- Charts -->
     <div class="col-lg-8">
-        <div class="card card-premium p-4 border-0 shadow-sm h-100">
-            <h5 class="fw-bold mb-4">Revenue Analytics</h5>
+        <div class="card card-premium p-4 border-0 shadow-sm h-100 rounded-0">
+            <h5 class="fw-bold mb-4 text-uppercase small letter-spacing-1">Revenue Analytics</h5>
             <canvas id="revenueChart" height="150"></canvas>
         </div>
     </div>
     <div class="col-lg-4">
-        <div class="card card-premium p-4 border-0 shadow-sm h-100">
-            <h5 class="fw-bold mb-4">Sales by Category</h5>
+        <div class="card card-premium p-4 border-0 shadow-sm h-100 rounded-0">
+            <h5 class="fw-bold mb-4 text-uppercase small letter-spacing-1">Sales by Category</h5>
             <canvas id="categoryChart" height="200"></canvas>
         </div>
     </div>

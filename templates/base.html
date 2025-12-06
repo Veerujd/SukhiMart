@@ -108,86 +108,144 @@
 
 <body>
 
-    <!-- Main Header -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm py-3">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="/">
-                <span class="h3 fw-bold mb-0 text-purple-primary">Sukhi<span class="text-gold">Mart</span></span>
-            </a>
+    <!-- Fixed Header Container -->
+    <div class="fixed-top" style="pointer-events: none; z-index: 1030;">
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarContent">
-                <!-- Search Bar -->
-                <div class="d-flex col-lg-4 search-bar my-3 my-lg-0">
-                    <form class="w-100">
-                        <input type="text" class="form-control" placeholder="Search...">
-                        <button type="submit"><i class="fas fa-search"></i></button>
-                    </form>
-                </div>
-
-                <!-- Nav Links -->
-                <ul class="navbar-nav mx-auto mb-2 mb-lg-0 gap-3 align-items-center">
-                    <li class="nav-item"><a class="nav-link-premium" href="/">Home</a></li>
-                    <li class="nav-item"><a class="nav-link-premium" href="/products">Shop</a></li>
-                    <li class="nav-item"><a class="nav-link-premium" href="/about">Our Story</a></li>
-                    <li class="nav-item"><a class="nav-link-premium" href="/contact">Contact</a></li>
-                </ul>
-
-                <!-- Right Icons -->
-                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center gap-3">
-                    <li class="nav-item">
-                        <a class="nav-link position-relative hover-glow text-purple-dark" href="/cart">
-                            <i class="fas fa-shopping-cart fa-lg"></i>
-                            <span
-                                class="position-absolute top-10 start-100 translate-middle badge rounded-pill bg-gold">
-                                0
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link hover-glow text-purple-dark" href="#"><i class="fas fa-heart fa-lg"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-outline-purple rounded-pill px-4 ms-2" href="/login">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Category Scale Navbar -->
-    <div class="position-relative bg-white border-bottom shadow-sm">
-        <div class="container position-relative">
-            <button
-                class="btn btn-light rounded-circle shadow-sm position-absolute start-0 top-50 translate-middle-y z-1 d-none d-lg-block"
-                id="scrollLeft">
-                <i class="fas fa-chevron-left text-purple-primary"></i>
-            </button>
-
-            <div class="category-nav d-flex overflow-auto py-3 px-4" id="categoryContainer"
-                style="scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none;">
-                {% for cat in ['Vegetables', 'Fruits', 'Dairy', 'Snacks', 'Drinks', 'Bakery', 'Frozen', 'Cleaning',
-                'Personal Care', 'Baby Care', 'Pet Food', 'Home Needs'] %}
-                <a href="/category/{{ cat }}"
-                    class="category-item text-center text-decoration-none text-dark mx-3 flex-shrink-0 group">
-                    <div class="p-3 rounded-circle bg-purple-light mb-2 transition-transform hover-scale">
-                        <i class="fas fa-shopping-basket fa-lg text-purple-primary"></i>
+        <!-- Main Floating Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-floating mx-auto mt-3" id="mainNav" style="pointer-events: auto;">
+            <div class="container-fluid px-4">
+                <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                    <div class="bg-purple-primary text-white rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 40px; height: 40px;">
+                        <i class="fas fa-leaf text-gold"></i>
                     </div>
-                    <span class="small fw-bold d-block">{{ cat }}</span>
+                    <span class="h4 mb-0 fw-bold text-dark" style="font-family: 'Cinzel', serif;">Sukhi<span
+                            class="text-gold">Mart</span></span>
                 </a>
-                {% endfor %}
-            </div>
 
-            <button
-                class="btn btn-light rounded-circle shadow-sm position-absolute end-0 top-50 translate-middle-y z-1 d-none d-lg-block"
-                id="scrollRight">
-                <i class="fas fa-chevron-right text-purple-primary"></i>
-            </button>
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent">
+                    <i class="fas fa-bars fa-lg text-purple-primary"></i>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav mx-auto align-items-center gap-1">
+                        <li class="nav-item"><a class="nav-link nav-link-ethereal active" href="/">Home</a></li>
+                        <li class="nav-item has-dropdown">
+                            <a class="nav-link nav-link-ethereal d-flex align-items-center gap-1" href="/products">
+                                Shop <i class="fas fa-chevron-down small opacity-50"></i>
+                            </a>
+                            <div class="category-dropdown text-center">
+                                <div class="container">
+                                    <div class="row g-4 justify-content-center">
+                                        {% for cat, icon in [('Vegetables', 'carrot'), ('Fruits', 'apple-alt'),
+                                        ('Dairy',
+                                        'cheese'), ('Snacks', 'cookie'), ('Beverages', 'wine-glass-alt')] %}
+                                        <div class="col-6 col-md-2">
+                                            <a href="/category/{{cat}}" class="text-decoration-none cat-item d-block">
+                                                <div class="cat-icon-box">
+                                                    <i class="fas fa-{{icon}}"></i>
+                                                </div>
+                                                <span
+                                                    class="fw-bold text-dark small text-uppercase letter-spacing-1">{{cat}}</span>
+                                            </a>
+                                        </div>
+                                        {% endfor %}
+                                        <div class="col-6 col-md-2">
+                                            <a href="/products" class="text-decoration-none cat-item d-block">
+                                                <div class="cat-icon-box bg-gold text-white">
+                                                    <i class="fas fa-arrow-right"></i>
+                                                </div>
+                                                <span
+                                                    class="fw-bold text-dark small text-uppercase letter-spacing-1">View
+                                                    All</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link nav-link-ethereal" href="/about">Story</a></li>
+                        <li class="nav-item"><a class="nav-link nav-link-ethereal" href="/contact">Contact</a></li>
+                    </ul>
+
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-none d-lg-block">
+                            <form class="position-relative">
+                                <input type="text"
+                                    class="form-control rounded-pill border-0 bg-light ps-4 pe-5 py-2 small"
+                                    placeholder="Search..." style="width: 200px;">
+                                <button
+                                    class="btn btn-link position-absolute top-50 end-0 translate-middle-y text-muted pe-3 text-decoration-none"
+                                    type="submit">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </form>
+                        </div>
+                        <a href="/cart"
+                            class="btn btn-light rounded-circle shadow-sm position-relative d-flex align-items-center justify-content-center"
+                            style="width: 45px; height: 45px;">
+                            <i class="fas fa-shopping-bag text-purple-primary"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-gold border border-white">2</span>
+                        </a>
+                        <a href="/login" class="btn btn-premium px-4 py-2 fs-6 rounded-pill border-0 d-none d-md-block"
+                            style="font-size: 0.85rem;">Login</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Premium Floating Category Strip -->
+        <div class="container-fluid" style="margin-top: 15px; pointer-events: auto;">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-11 col-xl-10">
+                    <div class="glass-pill py-2 px-1 px-md-4 mx-auto position-relative shadow-sm"
+                        style="background: rgba(255, 255, 255, 0.95); border: 1px solid rgba(255, 255, 255, 0.6);">
+
+                        <!-- Scroll Buttons -->
+                        <button
+                            class="btn btn-sm btn-light rounded-circle shadow-sm position-absolute start-0 top-50 translate-middle-y ms-2 z-1 d-none d-md-block"
+                            id="scrollLeft" style="width: 35px; height: 35px;">
+                            <i class="fas fa-chevron-left text-purple-dark"></i>
+                        </button>
+
+                        <button
+                            class="btn btn-sm btn-light rounded-circle shadow-sm position-absolute end-0 top-50 translate-middle-y me-2 z-1 d-none d-md-block"
+                            id="scrollRight" style="width: 35px; height: 35px;">
+                            <i class="fas fa-chevron-right text-purple-dark"></i>
+                        </button>
+
+                        <!-- Scrollable Container -->
+                        <div class="category-nav d-flex overflow-auto align-items-center px-2 px-md-4"
+                            id="categoryContainer"
+                            style="scroll-behavior: smooth; -ms-overflow-style: none; scrollbar-width: none; gap: 1rem;">
+                            {% for cat, icon in [('Vegetables', 'carrot'), ('Fruits', 'apple-alt'), ('Dairy', 'cheese'),
+                            ('Snacks', 'cookie'), ('Beverages', 'wine-glass-alt'), ('Bakery', 'bread-slice'), ('Frozen',
+                            'ice-cream'), ('Cleaning', 'spray-can'), ('Beauty', 'spa'), ('Baby', 'baby'), ('Pet',
+                            'paw'),
+                            ('Home', 'home')] %}
+                            <a href="/category/{{ cat }}"
+                                class="category-item text-center text-decoration-none group flex-shrink-0 py-1">
+                                <div
+                                    class="d-flex align-items-center gap-2 px-3 py-2 rounded-pill transition-all hover-glass-highlight">
+                                    <i
+                                        class="fas fa-{{icon}} text-purple-primary group-hover:text-gold transition-colors"></i>
+                                    <span class="small fw-bold text-dark text-uppercase letter-spacing-1"
+                                        style="font-size: 0.85rem; white-space: nowrap;">{{ cat }}</span>
+                                </div>
+                            </a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Safe Spacer to prevent content hiding -->
+    <div style="height: 190px;" class="d-none d-lg-block"></div>
+    <div style="height: 190px;" class="d-block d-lg-none"></div>
 
     <!-- Main Content -->
     <main>

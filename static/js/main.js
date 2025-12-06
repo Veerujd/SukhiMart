@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', function () {
         mirror: false
     });
 
+    // Navbar Scroll Effect
+    const navbar = document.querySelector('.navbar-floating');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
     // Category Navbar Scroll Logic
     const scrollContainer = document.getElementById('categoryContainer');
     const scrollLeftBtn = document.getElementById('scrollLeft');
