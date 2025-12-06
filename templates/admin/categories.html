@@ -1,0 +1,88 @@
+{% extends 'admin_base.html' %}
+
+{% block page_title %}Categories Management{% endblock %}
+
+{% block admin_content %}
+<div class="row g-4">
+    <div class="col-lg-4">
+        <div class="card card-premium shadow-sm border-0">
+            <div class="card-header bg-white border-0 py-3">
+                <h5 class="fw-bold mb-0">Add Category</h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Category Name</label>
+                        <input type="text" class="form-control" placeholder="e.g. Vegetables">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Icon (FontAwesome Class)</label>
+                        <input type="text" class="form-control" placeholder="e.g. fas fa-carrot">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Image</label>
+                        <input type="file" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                    <button class="btn btn-premium w-100">Add Category</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-8">
+        <div class="card card-premium shadow-sm border-0">
+            <div class="card-header bg-white border-0 py-3 d-flex justify-content-between align-items-center">
+                <h5 class="fw-bold mb-0">All Categories</h5>
+                <div class="input-group" style="width: 200px;">
+                    <span class="input-group-text bg-light border-0"><i class="fas fa-search"></i></span>
+                    <input type="text" class="form-control bg-light border-0" placeholder="Search...">
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="table align-middle mb-0 table-hover">
+                    <thead class="bg-light">
+                        <tr>
+                            <th class="ps-4">Icon</th>
+                            <th>Name</th>
+                            <th>Products</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cat in ['Vegetables', 'Fruits', 'Dairy', 'Snacks', 'Chocolates'] %}
+                        <tr>
+                            <td class="ps-4">
+                                <div class="bg-purple-light text-purple-primary rounded-circle d-flex align-items-center justify-content-center"
+                                    style="width: 40px; height: 40px;">
+                                    <i class="fas fa-leaf"></i>
+                                </div>
+                            </td>
+                            <td class="fw-bold">{{ cat }}</td>
+                            <td>{{ loop.index * 15 }} items</td>
+                            <td>
+                                <div class="form-check form-switch">
+                                    <input class="form-check-input" type="checkbox" checked>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="d-flex gap-2">
+                                    <button class="btn btn-light btn-sm rounded shadow-sm text-primary"><i
+                                            class="fas fa-edit"></i></button>
+                                    <button class="btn btn-light btn-sm rounded shadow-sm text-danger"><i
+                                            class="fas fa-trash"></i></button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

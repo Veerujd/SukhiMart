@@ -1,0 +1,196 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row">
+        <!-- Sidebar Filters -->
+        <div class="col-lg-3 mb-4">
+            <div class="bg-white p-4 rounded-4 shadow-sm sticky-top" style="top: 100px;">
+                <h5 class="fw-bold mb-4 text-purple-dark">Filters</h5>
+
+                <!-- Categories -->
+                <div class="mb-4">
+                    <h6 class="fw-bold text-gold mb-3">Categories</h6>
+                    <div class="d-flex flex-column gap-2">
+                        {% for cat in ['Vegetables', 'Fruits', 'Dairy', 'Snacks', 'Chocolates', 'Beverages', 'Home
+                        Care'] %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="cat_{{loop.index}}">
+                            <label class="form-check-label" for="cat_{{loop.index}}">{{ cat }}</label>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Price Range -->
+                <div class="mb-4">
+                    <h6 class="fw-bold text-gold mb-3">Price</h6>
+                    <input type="range" class="form-range" min="0" max="1000" id="priceRange">
+                    <div class="d-flex justify-content-between text-muted small">
+                        <span>$0</span>
+                        <span>$1000</span>
+                    </div>
+                </div>
+
+                <hr>
+
+                <!-- Discount -->
+                <div class="mb-4">
+                    <h6 class="fw-bold text-gold mb-3">Discount</h6>
+                    <div class="d-flex flex-column gap-2">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="discount" id="disc_1">
+                            <label class="form-check-label" for="disc_1">10% Off or more</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="discount" id="disc_2">
+                            <label class="form-check-label" for="disc_2">25% Off or more</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="discount" id="disc_3">
+                            <label class="form-check-label" for="disc_3">50% Off or more</label>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-premium w-100 mt-2">Apply Filters</button>
+            </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="col-lg-9">
+            <!-- Top Bar -->
+            <div class="d-flex justify-content-between align-items-center mb-4 bg-white p-3 rounded-3 shadow-sm">
+                <p class="mb-0 text-muted">Showing 1-12 of 50 products</p>
+                <div class="d-flex align-items-center gap-2">
+                    <span class="text-muted d-none d-md-block">Sort by:</span>
+                    <select class="form-select border-0 bg-light rounded-pill" style="width: 200px;">
+                        <option>Popularity</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Newest First</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Skeleton Loader -->
+            <div class="row row-cols-2 row-cols-md-3 row-cols-xl-5 g-3" id="skeleton-loader-products">
+                {% for i in range(15) %}
+                <div class="col">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden skeleton-wrapper">
+                        <div class="skeleton" style="height: 250px;"></div>
+                        <div class="card-body">
+                            <div class="skeleton mb-2" style="height: 20px; width: 80%;"></div>
+                            <div class="skeleton mb-3" style="height: 15px; width: 60%;"></div>
+                            <div class="d-flex justify-content-between">
+                                <div class="skeleton" style="height: 30px; width: 50px;"></div>
+                                <div class="skeleton" style="height: 35px; width: 100px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Real Products -->
+            <div class="row row-cols-2 row-cols-md-3 row-cols-xl-5 g-3 d-none real-content" id="real-product-grid">
+                {% for i in range(15) %}
+                <div class="col" data-aos="fade-up" data-aos-delay="{{ loop.index0 * 50 }}">
+                    <div class="card card-premium product-card h-100 position-relative group">
+                        <!-- Hover Actions -->
+                        <div class="position-absolute top-50 start-50 translate-middle d-flex gap-2 opacity-0 hover-actions"
+                            style="z-index: 10; transition: opacity 0.3s;">
+                            <button class="btn btn-light rounded-circle shadow hover-glow"><i
+                                    class="fas fa-heart text-danger"></i></button>
+                            <button class="btn btn-light rounded-circle shadow hover-glow"><i
+                                    class="fas fa-eye text-primary"></i></button>
+                        </div>
+
+                        <a href="/product/{{ loop.index }}"
+                            class="text-decoration-none text-dark d-block overflow-hidden">
+                            <div class="p-3 text-center">
+                                <img src="https://placehold.co/300x300/png?text=Product+{{loop.index}}"
+                                    class="img-fluid" alt="Product">
+                            </div>
+                        </a>
+                        <div class="card-body text-center">
+                            <small class="text-muted d-block mb-1">Vegetables</small>
+                            <h6 class="card-title fw-bold text-truncate" title="Fresh Organic Product {{loop.index}}">
+                                Fresh Organic Product {{loop.index}}</h6>
+                            <div class="d-flex justify-content-center align-items-center gap-2 mb-2">
+                                <span class="h6 mb-0 text-purple-primary fw-bold">$12.99</span>
+                                <span class="text-decoration-line-through text-muted small">$15.00</span>
+                                <span class="badge bg-gold text-dark small">10%</span>
+                            </div>
+                            <button class="btn btn-outline-purple w-100 rounded-pill btn-sm hover-bg-purple">
+                                <i class="fas fa-shopping-bag me-1"></i> Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Pagination -->
+            <nav class="mt-5 d-flex justify-content-center">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link rounded-circle mx-1 border-0 bg-light text-muted" href="#"><i
+                                class="fas fa-chevron-left"></i></a>
+                    </li>
+                    <li class="page-item"><a
+                            class="page-link rounded-circle mx-1 border-0 bg-purple-primary text-white shadow"
+                            href="#">1</a></li>
+                    <li class="page-item"><a
+                            class="page-link rounded-circle mx-1 border-0 bg-light text-dark hover-bg-light"
+                            href="#">2</a></li>
+                    <li class="page-item"><a
+                            class="page-link rounded-circle mx-1 border-0 bg-light text-dark hover-bg-light"
+                            href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link rounded-circle mx-1 border-0 bg-light text-dark hover-bg-light" href="#"><i
+                                class="fas fa-chevron-right"></i></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Custom hover effect for product card actions */
+    .card-premium:hover .hover-actions {
+        opacity: 1 !important;
+    }
+
+    .btn-outline-purple {
+        color: var(--purple-primary);
+        border: 1px solid var(--purple-primary);
+    }
+
+    .btn-outline-purple:hover,
+    .hover-bg-purple:hover {
+        background-color: var(--purple-primary);
+        color: white;
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(() => {
+            const skeletons = document.getElementById('skeleton-loader-products');
+            const products = document.getElementById('real-product-grid');
+
+            if (skeletons && products) {
+                skeletons.classList.add('d-none');
+                products.classList.remove('d-none');
+                AOS.refresh();
+            }
+        }, 1500); // 1.5s simulation
+    });
+</script>
+{% endblock %}

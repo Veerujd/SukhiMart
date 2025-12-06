@@ -1,0 +1,305 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Outfit:wght@300;400;500;600&display=swap');
+
+:root {
+    --purple-primary: #4A0E4E;
+    /* Deeper Royal Purple */
+    --purple-dark: #2C003E;
+    --purple-light: #F3E5F5;
+    --gold-primary: #C5A059;
+    /* Muted Champagne Gold */
+    --gold-soft: #EFE6D5;
+
+    --text-dark: #121212;
+    --text-light: #FFFFFF;
+    --gray-light: #FAFAFA;
+    --gray-dark: #404040;
+
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.08);
+    --shadow-sharp: 0 1px 2px rgba(0, 0, 0, 0.1);
+
+    --border-radius-lg: 0px;
+    /* Sharp corners */
+    --border-radius-md: 4px;
+    /* Minimal rounding */
+}
+
+/* Navbar Z-Index Fix */
+.navbar.sticky-top {
+    z-index: 1030;
+}
+
+.sticky-top {
+    z-index: 1020;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    color: var(--text-dark);
+    background-color: #ffffff;
+    overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.display-1,
+.display-2,
+.display-3,
+.display-4,
+.display-5,
+.display-6 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+}
+
+.text-purple-primary {
+    color: var(--purple-primary) !important;
+}
+
+.text-purple-dark {
+    color: var(--purple-dark) !important;
+}
+
+.text-gold {
+    color: var(--gold-primary) !important;
+}
+
+.bg-purple-primary {
+    background-color: var(--purple-primary) !important;
+}
+
+.bg-purple-dark {
+    background-color: var(--purple-dark) !important;
+}
+
+.bg-purple-light {
+    background-color: var(--purple-light) !important;
+}
+
+.bg-gold {
+    background-color: var(--gold-primary) !important;
+}
+
+.shadow-premium {
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-premium {
+    background: linear-gradient(135deg, var(--purple-primary), var(--purple-dark));
+    color: var(--text-light);
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: 10px 24px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(106, 27, 154, 0.4);
+}
+
+.btn-premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--gold-primary);
+    color: var(--gold-soft);
+}
+
+.card-premium {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: var(--border-radius-md);
+    background: #fff;
+    box-shadow: none;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+}
+
+.card-premium:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--gold-primary);
+}
+
+/* Compact Product Card Styles */
+.product-card .card-body {
+    padding: 0.8rem;
+}
+
+.product-card .card-title {
+    font-size: 1rem;
+    margin-bottom: 0.25rem !important;
+}
+
+.product-card .btn-premium {
+    padding: 6px 16px;
+    font-size: 0.9rem;
+}
+
+.product-card img {
+    padding: 1rem;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+    background-color: var(--purple-light) !important;
+}
+
+.transition-transform {
+    transition: transform 0.3s ease;
+}
+
+/* Premium Navbar Styles */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.nav-link-premium {
+    color: var(--text-dark) !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link-premium:hover {
+    color: var(--purple-primary) !important;
+}
+
+.nav-link-premium::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0px;
+    left: 50%;
+    background-color: var(--gold-primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link-premium:hover::after {
+    width: 80%;
+}
+
+/* Feature Card */
+.feature-card {
+    background: #ffffff;
+    border-radius: var(--border-radius-md);
+    padding: 2rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--gold-soft);
+}
+
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    background: var(--purple-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: var(--purple-primary);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon-wrapper {
+    background: var(--purple-primary);
+    color: #fff;
+    transform: scale(1.1);
+}
+
+/* Newsletter Section */
+.newsletter-section {
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple-primary) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-bg-icon {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.05);
+    font-size: 15rem;
+    right: -2rem;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--purple-primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--purple-dark);
+}
+
+/* Skeleton Loading */
+.skeleton {
+    background-color: var(--purple-light);
+    background-image: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(212, 175, 55, 0.2) 20%,
+            rgba(255, 255, 255, 0) 60%);
+    background-size: 200% 100%;
+    animation: skeleton-shimmer 2s infinite linear;
+}
+
+@keyframes skeleton-shimmer {
+    0% {
+        background-position: -100% 0;
+    }
+
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+/* Animations */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+}
+
+[data-aos].aos-animate {
+    opacity: 1;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+}
